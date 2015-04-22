@@ -1,0 +1,89 @@
+﻿<Window x:Class="DartCounter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="560">
+    <Grid x:Name="WrapGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" x:Name="HeaderGrid" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80" />
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="90" />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Content="Start From" HorizontalAlignment="Right" VerticalAlignment="Center"  Margin="5"  />
+            <TextBox Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding StartNumber}" VerticalAlignment="Top" Width="120" Margin="5"/>
+            <Button Grid.Row="0" Grid.Column="2" Content="Start" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Command="{Binding StartGame}" Margin="5"/>
+        </Grid>
+        <Grid Grid.Row="1" x:Name="BodyGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="360" />
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" x:Name="PlayerPanelGrid">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="180" />
+                        <ColumnDefinition Width="180"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center">Player 1</Label>
+                    <Label Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center">Player 2</Label>
+                    <ListBox Grid.Column="0" Grid.Row="1" ItemsSource="{Binding P1Scores}"></ListBox>
+                    <ListBox Grid.Column="1" Grid.Row="1" ItemsSource="{Binding P2Scores}"></ListBox>
+                </Grid>
+            </Grid>
+            <Grid Grid.Column="1" x:Name="ControlPanelGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" x:Name="ControlsGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <TextBox HorizontalAlignment="Left" Height="23" Grid.Row="0" TextWrapping="Wrap" Text="{Binding ActualScore}" VerticalAlignment="Top" Width="120"  Grid.Column="0" Margin="5" />
+                    <RadioButton Content="Simple" GroupName="Multiplier" IsChecked="{Binding Simple}" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Margin="5"/>
+                    <RadioButton Content="Double" GroupName="Multiplier" IsChecked="{Binding Double}" HorizontalAlignment="Left" Grid.Row="2"  VerticalAlignment="Top"  Margin="5" />
+                    <RadioButton Content="Triple" GroupName="Multiplier" IsChecked="{Binding Triple}" HorizontalAlignment="Left"  Grid.Row="3"  VerticalAlignment="Top" Margin="5" />
+                    <Button Content="Submit" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Top" Width="75" Command="{Binding AddScore}" Margin="5" />
+                    <Label Content="{Binding CurrentAccumlatedScore}" HorizontalAlignment="Left" Margin="74,144,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Grid.ColumnSpan="2"/>
+                </Grid>
+                <Grid Grid.Row="1" x:Name="ActualJumbotronGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="25"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="100"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0">AccumlatedScore:</Label>
+                    <Label Grid.Row="0" Grid.Column="1" Content="{Binding CurrentAccumlatedScore}"></Label>
+                    <Label Grid.Row="1" Grid.Column="0">ActualDart:</Label>
+                    <Label Grid.Row="1" Grid.Column="1" Content="{Binding DartCount}"></Label>
+                    <Label Grid.Row="2" Grid.Column="0">CurrentPlayer:</Label>
+                    <Label Grid.Row="2" Grid.Column="1" Content="{Binding ActualPlayer}"></Label>
+                </Grid>
+            </Grid>
+        </Grid>
+
+
+    </Grid>
+</Window>
