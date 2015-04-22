@@ -6,4 +6,4 @@ When the match ended the loser sat down to code and the other two started a new 
 
 This was a great experience, we learned much about our teammates' coding style, developing patterns etc, and of course created the application to increase the "in game fun factor" :D
 
-It's not well-designed, has a some flaws, code smells, but it's working and maybe if we have more free time, we continue to develop later.
+It's not well-designed, has some flaws, code smells, but it's working and maybe if we have more free time, we continue to develop later.
